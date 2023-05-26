@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vue_export-helper-c27b6911.js";import{r as t,o as c,c as n,a}from"./app-6c7da19b.js";const r={};function _(s,l){const o=t("auto-catolog");return c(),n("div",null,[a(o)])}const i=e(r,[["render",_],["__file","index.html.vue"]]);export{i as default};
