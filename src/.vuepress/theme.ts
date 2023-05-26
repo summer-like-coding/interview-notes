@@ -15,6 +15,9 @@ export default hopeTheme({
 
   navbar: Navbar,
   sidebar: Sidebar,
+  // 页脚支持
+  displayFooter: true,
+  copyright:"Copyright © 2023 summer",
 
   metaLocales:{
     editLink: '在 GitHub 上编辑此页',
