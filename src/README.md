@@ -21,7 +21,4 @@ features:
   - title: 协作
     icon: info
     details: 由summer和alex共同完成  
-
-copyright: false
-footer: 面试笔记
 ---

@@ -17,10 +17,12 @@ export default hopeTheme({
   sidebar: Sidebar,
   // 页脚支持
   displayFooter: true,
-  copyright:"Copyright © 2023 summer",
+  footer:
+    '<a href="https://beian.miit.gov.cn/" target="_blank">苏ICP备2023012081号</a>',
+  copyright: "Copyright © 2023 summer",
 
-  metaLocales:{
-    editLink: '在 GitHub 上编辑此页',
+  metaLocales: {
+    editLink: "在 GitHub 上编辑此页",
   },
 
   plugins: {
@@ -64,12 +66,10 @@ export default hopeTheme({
       vuePlayground: true,
     },
     // 自动生成目录
-    autoCatalog:{
-
-    },
+    autoCatalog: {},
     // 代码复制
-    copyCode:{
-      showInMobile:true
-    }
+    copyCode: {
+      showInMobile: true,
+    },
   },
 });
