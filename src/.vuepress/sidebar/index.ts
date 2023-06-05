@@ -4,6 +4,14 @@ export const Sidebar = sidebar({
   "/": [
     "",
     {
+      text: "CSS篇",
+      icon: "css",
+      prefix: "CSS/",
+      link: "CSS/",
+      // 设置structure会根据本地文件，自动生成侧边栏
+      children: "structure",
+    },
+    {
       text: "JavaScript篇",
       icon: "javascript",
       prefix: "JavaScript/",
@@ -40,6 +48,6 @@ export const Sidebar = sidebar({
       prefix: "Network/",
       link: "Network/",
       children: "structure",
-    },
+    }
   ],
 });
