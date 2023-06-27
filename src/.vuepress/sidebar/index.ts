@@ -48,6 +48,13 @@ export const Sidebar = sidebar({
       prefix: "Network/",
       link: "Network/",
       children: "structure",
+    },
+    {
+      text: "ES6篇",
+      icon: "es6",
+      prefix: "ES6/",
+      link: "ES6/",
+      children: "structure",
     }
   ],
 });
