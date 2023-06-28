@@ -371,3 +371,314 @@ const App = () => {
 };
 ```
 
+**关于扩展运算符和解构赋值，都需要对象具有可迭代性（iterable）**
+
+引申：在 JS 中哪些数据结构具有可迭代性？
+
+1. 数组
+2. 字符串
+3. Map(ES6 新增)
+4. Set(ES6 新增)
+5. arguments（参数列表）
+
+具有可迭代性的对象，可以使用解构赋值，扩展运算符以及`for...of`循环
+
+### 类
+
+#### 定义类
+
+##### ES5 的类
+
+`javascript`中没有类的概念，它是基于**原型**的继承，但是我们可以使用**构造函数**来模拟类的概念
+
+```javascript
+// 定义构造函数
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+// 定义方法
+Person.prototype.say = function () {
+  console.log(`My name is ${this.name}, I'm ${this.age} years old.`);
+};
+// 实例化
+const p1 = new Person("Summer", 18);
+p1.say(); // My name is Summer, I'm 18 years old.
+```
+
+##### ES6 的类
+
+```typescript
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  say() {
+    console.log(`My name is ${this.name}, I'm ${this.age} years old.`);
+  }
+}
+// 实例化
+const p1 = new Person("Summer", 18);
+p1.say(); // My name is Summer, I'm 18 years old.
+```
+
+结合上面两个代码，我们可以看出:
+
+- `ES6` 的类，本质上还是 ES5 的构造函数,可以认为，**`class`就是构造函数的语法糖**
+- `constructor` 方法，就是构造函数,用来接收参数。如果不写，默认会有一个空的`constructor`方法
+- `ES6`中定义的方法，是类的方法，不要加上关键词`function`
+
+#### 对类添加方法
+
+- 在原型链上添加方法
+
+```typescript
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  say() {
+    console.log(`My name is ${this.name}, I'm ${this.age} years old.`);
+  }
+}
+// 添加方法
+Person.prototype.eat = function () {
+  console.log("I'm eating.");
+};
+// 实例化
+const p1 = new Person("Summer", 18);
+p1.say(); // My name is Summer, I'm 18 years old.
+p1.eat(); // I'm eating.
+```
+
+- 使用 Object.assign()方法
+
+```typescript
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  say() {
+    console.log(`My name is ${this.name}, I'm ${this.age} years old.`);
+  }
+}
+// 添加方法
+Object.assign(Person.prototype, {
+  eat() {
+    console.log("I'm eating.");
+  },
+});
+// 实例化
+const p1 = new Person("Summer", 18);
+p1.say(); // My name is Summer, I'm 18 years old.
+p1.eat(); // I'm eating.
+```
+
+#### 类的继承
+
+具体参考：[继承](../JavaScript/继承.md)
+
+### module 模块化
+
+主要就是`export`和`import`两个关键字
+
+### Promise
+
+#### Promise 的基本使用
+
+```typescript
+// 定义一个 Promise 对象
+const p1 = new Promise((resolve, reject) => {
+  // resolve 成功的回调函数
+  // reject 失败的回调函数
+  // 异步操作
+  setTimeout(() => {
+    const num = Math.random();
+    if (num > 0.5) {
+      resolve(num);
+    } else {
+      reject(num);
+    }
+  }, 1000);
+});
+// 调用 Promise 对象的 then 方法
+p1.then(
+  (data) => {
+    console.log("成功", data);
+  },
+  (err) => {
+    console.log("失败", err);
+  }
+);
+```
+
+从上面的代码可以看出：
+
+- `Promise`对象是一个构造函数，通过`new`关键字创建一个`Promise`对象
+- 在还未执行到`resolve`或`reject`时，`Promise`对象的状态为`pending`，执行到`resolve`时，状态变为`resolved`，执行到`reject`时，状态变为`rejected`
+- 然后就会去调用`then`方法，`then`方法接收两个参数，第一个参数是`resolve`的回调函数，第二个参数是`reject`的回调函数
+
+#### Promise 的三种状态
+
+- `pending`：等待状态，既不是成功也不是失败
+- `resolved`：成功状态
+- `rejected`: 失败状态
+
+#### 实例方法
+
+- `then()`：接收两个参数，第一个参数是`resolve`的回调函数，第二个参数是`reject`的回调函数
+- `catch()`：接收一个参数，是`reject`的回调函数,兜底的作用
+- `finally()`：接收一个参数，是`resolve`或`reject`的回调函数，不管`Promise`对象的状态是`resolved`还是`rejected`，都会执行
+
+#### 构造函数方法
+
+- `all()`: 接收一个数组，数组中的每一项都是一个`Promise`对象，当数组中的每一个`Promise`对象都变为`resolved`状态时，`all()`方法返回的`Promise`对象才会变为`resolved`状态，如果数组中的某一个`Promise`对象变为`rejected`状态，`all()`方法返回的`Promise`对象就会变为`rejected`状态
+
+```typescript
+// 定义一个 Promise 对象
+const p1 = new Promise((resolve, reject) => {
+  // resolve 成功的回调函数
+  // reject 失败的回调函数
+  // 异步操作
+  setTimeout(() => {
+    const num = Math.random();
+    if (num > 0.3) {
+      resolve(num);
+    } else {
+      reject(num);
+    }
+  }, 1000);
+});
+
+const p2 = new Promise((resolve, reject) => {
+  // resolve 成功的回调函数
+  // reject 失败的回调函数
+  // 异步操作
+  setTimeout(() => {
+    const num = Math.random();
+    if (num > 0.5) {
+      resolve(num);
+    } else {
+      reject(num);
+    }
+  }, 1000);
+});
+
+const p3 = new Promise((resolve, reject) => {
+  // resolve 成功的回调函数
+  // reject 失败的回调函数
+  // 异步操作
+  setTimeout(() => {
+    const num = Math.random();
+    if (num > 0.7) {
+      resolve(num);
+    } else {
+      reject(num);
+    }
+  }, 1000);
+});
+
+// 调用 Promise 对象的 all 方法
+Promise.all([p1, p2, p3]).then(
+  (data) => {
+    console.log("成功", data);
+  },
+  (err) => {
+    console.log("失败", err);
+  }
+);
+```
+
+- `race()`: 接收一个数组，数组中的每一项都是一个`Promise`对象，只要数组的某一个`Promise`对象变为`resolved`状态，`race()`方法返回的`Promise`对象就会变为`resolved`状态，如果数组中的某一个`Promise`对象变为`rejected`状态，`race()`方法返回的`Promise`对象就会变为`rejected`状态
+
+**简单来说，就是，谁先来的就跟着谁变化**
+
+```typescript
+// 定义一个 Promise 对象
+const p1 = new Promise((resolve, reject) => {
+  // resolve 成功的回调函数
+  // reject 失败的回调函数
+  // 异步操作
+  setTimeout(() => {
+    const num = Math.random();
+    if (num > 0.3) {
+      resolve(num);
+    } else {
+      reject(num);
+    }
+  }, 1000);
+});
+
+const p2 = new Promise((resolve, reject) => {
+  // resolve 成功的回调函数
+  // reject 失败的回调函数
+  // 异步操作
+  setTimeout(() => {
+    const num = Math.random();
+    if (num > 0.5) {
+      resolve(num);
+    } else {
+      reject(num);
+    }
+  }, 1000);
+});
+
+const p3 = new Promise((resolve, reject) => {
+  // resolve 成功的回调函数
+  // reject 失败的回调函数
+  // 异步操作
+  setTimeout(() => {
+    const num = Math.random();
+    if (num > 0.7) {
+      resolve(num);
+    } else {
+      reject(num);
+    }
+  }, 1000);
+});
+
+// 调用race
+Promise.race([p1, p2, p3]).then(
+  (data) => {
+    console.log("成功", data);
+  },
+  (err) => {
+    console.log("失败", err);
+  }
+);
+```
+
+- `resolve()`: 接收一个参数，可以是一个值，也可以是一个`Promise`对象，如果是一个值，返回的`Promise`对象就会变为`resolved`状态，如果是一个`Promise`对象，返回的`Promise`对象的状态就会跟随参数的`Promise`对象的状态
+
+```typescript
+// 定义一个 Promise 对象
+const p1 = new Promise((resolve, reject) => {
+  // resolve 成功的回调函数
+  // reject 失败的回调函数
+  // 异步操作
+  setTimeout(() => {
+    const num = Math.random();
+    if (num > 0.3) {
+      resolve(num);
+    } else {
+      reject(num);
+    }
+  }, 1000);
+});
+
+// 调用 Promise 对象的 resolve 方法
+Promise.resolve(p1).then(
+  (data) => {
+    console.log("成功", data);
+  },
+  (err) => {
+    console.log("失败", err);
+  }
+);
+```
+
+- `reject()`: 接收一个参数，返回的`Promise`对象就会变为`rejected`状态
+
