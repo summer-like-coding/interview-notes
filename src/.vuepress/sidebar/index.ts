@@ -55,6 +55,12 @@ export const Sidebar = sidebar({
       prefix: "ES6/",
       link: "ES6/",
       children: "structure",
+    },{
+      text: "浏览器篇",
+      icon: "browser",
+      prefix: "Browser/",
+      link: "Browser/",
+      children: "structure",
     }
   ],
 });
