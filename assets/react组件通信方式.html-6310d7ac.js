@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vue_export-helper-c27b6911.js";import{o as _,c as t}from"./app-2d94ba83.js";const c={};function r(o,a){return _(),t("div")}const f=e(c,[["render",r],["__file","react组件通信方式.html.vue"]]);export{f as default};
