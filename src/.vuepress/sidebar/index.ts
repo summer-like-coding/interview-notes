@@ -61,6 +61,12 @@ export const Sidebar = sidebar({
       prefix: "Browser/",
       link: "Browser/",
       children: "structure",
+    },{
+      text: "项目篇",
+      icon: "project",
+      prefix: "Project/",
+      link: "Project/",
+      children: "structure",
     }
   ],
 });
