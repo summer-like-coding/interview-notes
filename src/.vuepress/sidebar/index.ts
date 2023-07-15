@@ -67,6 +67,12 @@ export const Sidebar = sidebar({
       prefix: "Project/",
       link: "Project/",
       children: "structure",
+    },{
+      text: "场景篇",
+      icon: "scene",
+      prefix: "Scene/",
+      link: "Scene/",
+      children: "structure",
     }
   ],
 });
