@@ -73,6 +73,12 @@ export const Sidebar = sidebar({
       prefix: "Scene/",
       link: "Scene/",
       children: "structure",
+    },{
+      text: "面试复盘篇",
+      icon: "interview",
+      prefix: "Interview/",
+      link: "Interview/",
+      children: "structure",
     }
   ],
 });
