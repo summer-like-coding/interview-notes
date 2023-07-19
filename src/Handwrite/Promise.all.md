@@ -134,3 +134,7 @@ function promiseAll(promises) {
   - 如果是 Promise 实例，那么就需要等待这个 Promise 实例的状态变更(`.then()`调用)，然后再将结果放在 result 里面
   - 如果不是，那么直接放在 result 里面
 - 记录一个`count`，用来记录`Promise`实例的数量，当`count`等于`promises`的长度时，说明所有的`Promise`实例都已经执行完毕，那么就可以调用`resolve`了
+
+## 参考
+- [字节飞书面试——请实现promise.all](https://juejin.cn/post/7069805387490263047)  
+- [09-手写Promise-Promise.all方法的实现](https://www.bilibili.com/video/BV1FZ4y1r7Tv/?share_source=copy_web&vd_source=dbd5755e577bdae4bc901ba06be7c505)
