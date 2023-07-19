@@ -74,6 +74,12 @@ export const Sidebar = sidebar({
       link: "Scene/",
       children: "structure",
     },{
+      text: "手写题",
+      icon: "handwrite",
+      prefix: "Handwrite/",
+      link: "Handwrite/",
+      children: "structure",
+    },{
       text: "面试复盘篇",
       icon: "interview",
       prefix: "Interview/",
