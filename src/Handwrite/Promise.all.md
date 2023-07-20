@@ -2,6 +2,7 @@
 title: Promise.all手写实现
 date: 2023-07-19
 author: summer
+order: 1
 category:
   - Handwrite
 tag:
