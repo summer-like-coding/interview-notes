@@ -55,33 +55,38 @@ export const Sidebar = sidebar({
       prefix: "ES6/",
       link: "ES6/",
       children: "structure",
-    },{
+    },
+    {
       text: "浏览器篇",
-      icon: "browser",
+      icon: "window",
       prefix: "Browser/",
       link: "Browser/",
       children: "structure",
-    },{
+    },
+    {
       text: "项目篇",
-      icon: "project",
+      icon: "page",
       prefix: "Project/",
       link: "Project/",
       children: "structure",
-    },{
+    },
+    {
       text: "场景篇",
-      icon: "scene",
+      icon: "more",
       prefix: "Scene/",
       link: "Scene/",
       children: "structure",
-    },{
+    },
+    {
       text: "手写题",
-      icon: "handwrite",
+      icon: "write",
       prefix: "Handwrite/",
       link: "Handwrite/",
       children: "structure",
-    },{
+    },
+    {
       text: "面试复盘篇",
-      icon: "interview",
+      icon: "wrap",
       prefix: "Interview/",
       link: "Interview/",
       children: "structure",
