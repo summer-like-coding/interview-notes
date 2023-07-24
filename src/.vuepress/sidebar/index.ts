@@ -90,6 +90,13 @@ export const Sidebar = sidebar({
       prefix: "Interview/",
       link: "Interview/",
       children: "structure",
+    },
+    {
+      text:"笔试题整理",
+      icon:"write",
+      prefix:"Written/",
+      link:"Written/",
+      children:"structure"
     }
   ],
 });

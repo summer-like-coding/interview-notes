@@ -3,8 +3,10 @@ title: listToTree 将列表转换为树形结构
 date: 2023-07-20
 author: summer
 order: 4
-category: - handwrite
-tag: -树形结构
+category: 
+  - handwrite
+tag: 
+  - 树形结构
 ---
 
 ## 题目要求
