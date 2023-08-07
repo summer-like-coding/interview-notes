@@ -24,7 +24,7 @@ export default defineUserConfig({
           formatter: "标签：$content",
         },
       ],
-    })
+    }),
   ]
 
   // Enable it with pwa

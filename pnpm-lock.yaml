@@ -1,5 +1,14 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  vuepress-plugin-markdown-todolist:
+    specifier: ^1.0.1
+    version: registry.npmmirror.com/vuepress-plugin-markdown-todolist@1.0.1
+
 devDependencies:
   '@vuepress/client':
     specifier: 2.0.0-beta.62
@@ -7201,6 +7210,12 @@ packages:
       - '@vue/composition-api'
       - supports-color
     dev: true
+
+  registry.npmmirror.com/vuepress-plugin-markdown-todolist@1.0.1:
+    resolution: {integrity: sha512-a/RI3/0u6YUjDGE3BqBtO4nGg7CwAIlCZPjMRGRiAdxHmTYrCVJTXVAd8bLXhNH1sXk/ZOaIfReWq5MvzIXjdg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vuepress-plugin-markdown-todolist/-/vuepress-plugin-markdown-todolist-1.0.1.tgz}
+    name: vuepress-plugin-markdown-todolist
+    version: 1.0.1
+    dev: false
 
   registry.npmmirror.com/vuepress-plugin-md-enhance@2.0.0-beta.214(vuepress@2.0.0-beta.62):
     resolution: {integrity: sha512-pE6zoCaj6ZdfC74m0sRl2Y8RTfKkMtpWyg4nG68dWOtgLYY6rFKni/rGrEJ6BoLSSlUp6NEeKrb0nBgBxXS1HQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vuepress-plugin-md-enhance/-/vuepress-plugin-md-enhance-2.0.0-beta.214.tgz}
